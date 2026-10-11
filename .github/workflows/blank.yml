@@ -1,0 +1,86 @@
+cat > index.html <<'EOF'
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Meu PC Virtual</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: white;
+      background: linear-gradient(135deg, #10152b, #124d63);
+      min-height: 100vh;
+    }
+    header {
+      padding: 20px;
+      background: #111827;
+      text-align: center;
+    }
+    main { padding: 20px; }
+    .desktop {
+      background: #ffffff12;
+      border: 1px solid #ffffff30;
+      border-radius: 16px;
+      padding: 20px;
+    }
+    button {
+      padding: 13px 18px;
+      margin: 5px;
+      border: 0;
+      border-radius: 9px;
+      background: #38bdf8;
+      color: #082f49;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    #status {
+      padding: 15px;
+      background: #111827;
+      border-radius: 10px;
+      margin-top: 15px;
+      overflow-wrap: anywhere;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>💻 Meu PC Virtual</h1>
+    <p>Meu ambiente de jogos</p>
+  </header>
+
+  <main>
+    <section class="desktop">
+      <h2>Área de trabalho</h2>
+      <p>Bem-vindo ao seu projeto!</p>
+
+      <button onclick="mostrar('Sistema: demonstração visual')">
+        Meu sistema
+      </button>
+
+      <button onclick="mostrar('Memória e processador: não disponíveis nesta demonstração')">
+        Recursos
+      </button>
+
+      <button onclick="mostrar('Para jogar FIFA 21, conecte-se a um PC compatível com jogos por streaming.')">
+        Jogos
+      </button>
+
+      <div id="status">
+        Status: interface iniciada.
+      </div>
+    </section>
+  </main>
+
+  <script>
+    function mostrar(texto) {
+      document.getElementById('status').textContent = texto;
+    }
+  </script>
+</body>
+</html>
+EOF
+
+python3 -m http.server 8000
